@@ -30,37 +30,24 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+import sys
+import calendar
 from datetime import datetime
 
-def calendar_program():
-    cal = calendar.TextCalendar()
-    month = 0
-    year = 0
+args = [int(n) for n in sys.argv[1:]]
+print(args, len(args))
 
-    input_date = input('Enter the numeric values of the month and year separated by commas: ').split(', ')
+if len(args) == 0:
+    month = datetime.now().month
+    year = datetime.now().year
+elif len(args) == 1:
+    month = args[0]
+    year = datetime.now().year
+elif len(args) == 2:
+    month = args[0]
+    year = args[1]
+else:
+    print("usage Statement")
 
-    if len(input_date) == 2:
-        if input_date[0].isdigit() and input_date[1].isdigit():
-            print(cal.formatmonth(int(input_date[1]), int(input_date[0])))
-            return
-        else:
-            invalid_input()
-    elif len(input_date) == 1:
-        if input_date[0].isdigit():
-            now = datetime.now()
-            print(cal.formatmonth(now.year, int(input_date[0])))
-            return
-        else:
-            invalid_input()
-    elif len(input_date) == 0:
-        now = datetime.now()
-        print(cal.formatmonth(now.year, now.month))
-        return
-    else:
-        invalid_input()
-
-def invalid_input():
-    print('You are using an incorrect format, please type in month and year like this example: 4, 2015')
-    calendar_program()
-
-calendar_program()
+print(month, year)
