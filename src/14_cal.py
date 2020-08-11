@@ -60,7 +60,7 @@ def calendar_program():
         invalid_input()
 
 def invalid_input():
-    print('This is not the correct format, please type in month and year like so: 4, 2015')
+    print('You are using an incorrect format, please type in month and year like this example: 4, 2015')
     calendar_program()
 
 calendar_program()
