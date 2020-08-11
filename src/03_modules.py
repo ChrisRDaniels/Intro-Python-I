@@ -40,5 +40,7 @@ print(os.getcwd())
 
 # Print out your machine's login name
 # YOUR CODE HERE
+import getpass
 
+print(getpass.getuser())
 print(os.getlogin())
